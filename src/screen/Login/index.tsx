@@ -1,35 +1,39 @@
 import * as React from 'react';
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
 import Box from '@mui/material/Box';
+import CardHeader from '@mui/material/CardHeader';
+import CardContent from '@mui/material/CardContent';
+import CardActions from '@mui/material/CardActions';
+import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+import { CustomizedCardHeader } from './styles';
 
 const Login = () => {
   return (
     <Box sx={{
-        width: '100%',
-        height: '100%',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
+      width: '100%',
+      height: '100%',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
     }}>
-        <Card sx={{ maxWidth: 345 }}>
+      <Card sx={{ maxWidth: 480 }}>
+        <CustomizedCardHeader
+          title="TaFeito!"
+          subheader="Transforme suas tarefas em ações"
+        />
         <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-            Lizard
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
-            </Typography>
+          <Box py={1}>
+            <TextField fullWidth id="username" label="Usuário" variant="filled"/>
+          </Box>
+          <Box py={1}>
+            <TextField fullWidth id="password" label="Senha" variant="filled"/>
+          </Box>
         </CardContent>
         <CardActions>
-            <Button size="small">Share</Button>
-            <Button size="small">Learn More</Button>
+          <Button fullWidth variant="contained">Entrar</Button>
         </CardActions>
-        </Card>
+      </Card>
     </Box>
   );
 }
