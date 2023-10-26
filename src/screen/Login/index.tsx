@@ -7,6 +7,7 @@ import CardActions from "@mui/material/CardActions";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { CustomizedCardHeader } from "./styles";
+import {useNavigate} from 'react-router-dom';
 import {
   FormControl,
   InputLabel,
@@ -23,6 +24,8 @@ const Login = () => {
   const [password, setPassword] = useState<string | null>(null);
   const [showPassword, setShowPassword] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>("");
+
+  const navigate = useNavigate();
 
   const handleClickShowPassword = () => {
     setShowPassword(!showPassword);
@@ -59,7 +62,7 @@ const Login = () => {
       if (data.extra?.codigo === "CREDENCIAIS_INVALIDAS") {
         setErrorMessage(data.mensagem);
       } else {
-        console.log("login efetuado");
+        navigate('/tarefas');
         setErrorMessage("");
       }
     } catch (error) {
