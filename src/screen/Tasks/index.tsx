@@ -12,10 +12,11 @@ import MenuItem from "@mui/material/MenuItem";
 import ChecklistIcon from "@mui/icons-material/Checklist";
 import Logout from "@mui/icons-material/Logout";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from '../../provider/authProvider';
 
 const Tasks = () => {
   const navigate = useNavigate();
-
+  const {setToken} = useAuth();
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
@@ -33,7 +34,7 @@ const Tasks = () => {
 
   const logout = () => {
     setAnchorElNav(null);
-    navigate("/");
+    setToken(null);
   };
 
   return (
