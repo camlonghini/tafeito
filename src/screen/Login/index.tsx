@@ -7,7 +7,7 @@ import CardActions from "@mui/material/CardActions";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { CustomizedCardHeader } from "./styles";
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import {
   FormControl,
   InputLabel,
@@ -17,7 +17,7 @@ import {
   Typography,
 } from "@mui/material";
 import { VisibilityOff, Visibility } from "@mui/icons-material";
-import { useAuth } from '../../provider/authProvider';
+import { useAuth } from "../../provider/authProvider";
 
 const Login = () => {
   const [isButtonActive, setIsButtonActive] = useState(false);
@@ -25,13 +25,19 @@ const Login = () => {
   const [password, setPassword] = useState<string | null>(null);
   const [showPassword, setShowPassword] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>("");
-  const {token, setToken} = useAuth();
+  const { token, setToken } = useAuth();
 
   const navigate = useNavigate();
 
   const handleClickShowPassword = () => {
     setShowPassword(!showPassword);
   };
+
+  useEffect(() => {
+    if (token) {
+      navigate("/tarefas", { replace: true });
+    }
+  }, [token]);
 
   useEffect(() => {
     if (
@@ -64,10 +70,9 @@ const Login = () => {
       if (data.extra?.codigo === "CREDENCIAIS_INVALIDAS") {
         setErrorMessage(data.mensagem);
       } else {
-        if(data?.token) {
+        if (data?.token) {
           setToken(data?.token as string);
         }
-        navigate('/tarefas', {replace:true});
         setErrorMessage("");
       }
     } catch (error) {
