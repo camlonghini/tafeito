@@ -6,5 +6,6 @@ export type TaskListWrapperProps = {
 }
 
 export type TaskListProps = {
-    tasks: Tarefa[]
+    tasks: Tarefa[];
+    categoria: Categoria;
 }
