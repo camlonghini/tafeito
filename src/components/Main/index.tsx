@@ -24,8 +24,9 @@ const Main = (props: MainProps) => {
         <Typography
           variant="h2"
           sx={{
-            fontSize: "2rem",
+            fontSize: "1.2rem",
             marginBottom: "8px",
+            borderBottom: "1px solid #e9ebec"
           }}
         >
           {" "}
@@ -52,18 +53,19 @@ const Main = (props: MainProps) => {
         maxWidth: "1024px",
         margin: "70px auto",
         backgroundColor: "white",
-        padding: "30px",
+        padding: "10px 30px",
       }}
     >
       <CustomizedSectionBox>
         <Typography
           variant="h1"
           sx={{
-            fontSize: "3rem",
+            fontSize: "1.3rem",
+            textAlign: "center"
           }}
         >
           {" "}
-          Suas tarefas{" "}
+          Lista de Tarefas{" "}
         </Typography>
       </CustomizedSectionBox>
       {categorias.map((categoria) => renderCategoriaSection(categoria))}

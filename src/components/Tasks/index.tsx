@@ -1,12 +1,8 @@
 import { Box } from "@mui/material";
 import { useState } from "react";
-import {
-  format,
-  formatDistance,
-  formatRelative,
-  subDays,
-  parseISO,
-} from "date-fns";
+import { format, parseISO } from "date-fns";
+
+import TaskTags from "../TaskTags";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
@@ -18,12 +14,12 @@ import EditIcon from "@mui/icons-material/Edit";
 import { useGlobalContext } from "../../utils/global";
 import DeleteTaskDialog from "../DeleteTaskDialog";
 import { TaskProps } from "./Tasks";
-import { api } from "../../provider/customAxios";
 import {
   url_update_task,
   url_finish_task,
   url_reopen_task,
 } from "../../utils/api";
+import { api } from "../../provider/customAxios";
 import { useSnackbar } from "notistack";
 
 const Task = (props: TaskProps) => {
@@ -35,6 +31,7 @@ const Task = (props: TaskProps) => {
 
   const [openedDialog, setOpenedDialog] = useState(false);
   const [checked, setChecked] = useState(task.data_conclusao ? [task.id] : [0]);
+
   const { enqueueSnackbar } = useSnackbar();
   const labelId = `checkbox-list-label-${task.id}`;
 
@@ -87,6 +84,7 @@ const Task = (props: TaskProps) => {
       newChecked.splice(currentIndex, 1);
       reopenTask();
     }
+
     setChecked(newChecked);
   };
 
@@ -107,12 +105,14 @@ const Task = (props: TaskProps) => {
       enqueueSnackbar("Erro ao deletar a tarefa.", { variant: "error" });
     }
   };
+
   const renderFinishedText = () => {
     if (task.data_conclusao) {
       return format(parseISO(task.data_conclusao), "'Concluído em' dd/MM/yyyy");
     }
     return;
   };
+
   return (
     <>
       <ListItem
@@ -161,6 +161,7 @@ const Task = (props: TaskProps) => {
           />
         </ListItemButton>
       </ListItem>
+      <TaskTags task={task} />
       <DeleteTaskDialog
         task={task}
         openedDialog={openedDialog}
