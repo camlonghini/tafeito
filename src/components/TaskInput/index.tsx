@@ -33,11 +33,9 @@ const TaskInput = (props: TaskInputProps) => {
 
   const createTask = async () => {
     const payload = {
-      // your post data goes here
       id_categoria: category.id,
       descricao: taskDescription,
     };
-
     try {
       const response = await axios.post(url_tasks, payload, {
         headers: {
@@ -89,7 +87,6 @@ const TaskInput = (props: TaskInputProps) => {
               display: "flex",
               justifyContent: "flex-end",
               alignItems: "flex-start",
-              // 👇 Edit padding to further adjust position
               p: 2,
             }}
             >
