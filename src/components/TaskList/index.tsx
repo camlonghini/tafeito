@@ -11,7 +11,7 @@ import { Box } from "@mui/material";
 
 import { usePreviousValue } from "../../utils/hooks";
 import { useGlobalContext } from "../../utils/global";
-import { api } from '../../provider/customAxios';
+import { api } from "../../provider/customAxios";
 
 const TaskList = (props: TaskListProps) => {
   const { tasks, categoria } = props;
@@ -68,9 +68,11 @@ const TaskListWrapper = (props: TaskListWrapperProps) => {
     setLoading(true);
     try {
       const response = await api.get(url_tasks);
-      const category_tasks = response.data.filter(
-        (task: Tarefa) => task.id_categoria === categoria.id
-      );
+      const category_tasks = response.data
+        .filter((task: Tarefa) => task.id_categoria === categoria.id)
+        .sort((a: Tarefa, b: Tarefa) => {
+          return a.id - b.id;
+        });
       setTasks(category_tasks);
     } catch (err) {
       if (err instanceof Error) {
