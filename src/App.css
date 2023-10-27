@@ -7,9 +7,11 @@
 
 .App {
   text-align: center;
-  height: 100vmin;
+  height: 100%;
   width: 100%;
   background-color: #eee;
   background-image: url(https://www.transparenttextures.com/patterns/asfalt-dark.png);
+  background-attachment: fixed;
+
 }
 

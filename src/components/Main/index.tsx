@@ -53,8 +53,10 @@ const Main = (props: MainProps) => {
       flexWrap={"wrap"}
       sx={{
         textAlign: "center",
-        maxWidth: "720px",
-        margin: "0 auto",
+        maxWidth: "1024px",
+        margin: "70px auto",
+        backgroundColor: "white",
+        padding: "30px"
       }}
     >
       <CustomizedSectionBox>
