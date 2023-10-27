@@ -1,7 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,400;1,300;1,400&display=swap');
+
+@font-face {
+  font-family: logoFont;
+  src: url('./fonts/Pacifico-Regular.ttf');
+}
 
 .App {
   text-align: center;
   height: 100vmin;
   width: 100%;
+  background-color: #eee;
+  background-image: url(https://www.transparenttextures.com/patterns/asfalt-dark.png);
 }
 

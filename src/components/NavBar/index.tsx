@@ -10,11 +10,11 @@ import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import TaskAlt from "@mui/icons-material/TaskAlt";
+import ChecklistIcon from '@mui/icons-material/Checklist';
 import Logout from "@mui/icons-material/Logout";
 import { NavBarProps } from "./NavBar";
-import { url_usuarios_autenticado } from '../../utils/api';
-import { api } from '../../provider/customAxios';
+import { url_usuarios_autenticado } from "../../utils/api";
+import { api } from "../../provider/customAxios";
 
 const NavBar = (props: NavBarProps) => {
   const { logout } = props;
@@ -58,7 +58,7 @@ const NavBar = (props: NavBarProps) => {
               alignItems: "center",
             }}
           >
-            <TaskAlt sx={{ display: "flex", mr: 2 }} />
+            <ChecklistIcon sx={{ display: "flex", mr: 2 }} />
 
             <Typography
               variant="h6"
