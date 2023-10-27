@@ -68,14 +68,14 @@ const NavBar = (props: NavBarProps) => {
               sx={{
                 mr: 2,
                 display: "flex",
-                fontFamily: "monospace",
+                fontFamily: "logoFont",
                 fontWeight: 700,
                 letterSpacing: ".3rem",
                 color: "inherit",
                 textDecoration: "none",
               }}
             >
-              TaFeito
+              TaFeito!
             </Typography>
             {userData ? (
               <Typography> Bem vindo: {userData.nome} </Typography>

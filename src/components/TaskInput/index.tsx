@@ -101,7 +101,6 @@ const TaskInput = (props: TaskInputProps) => {
             display: "flex",
             justifyContent: "flex-end",
             alignItems: "flex-start",
-            // 👇 Edit padding to further adjust position
             p: 2,
           }}
         >
