@@ -5,7 +5,7 @@ import { SnackbarProvider, VariantType, useSnackbar } from "notistack";
 
 import Button from "@mui/material/Button";
 import AddTaskIcon from '@mui/icons-material/AddTask';
-import axios from "axios";
+import { api } from '../../provider/customAxios';
 
 import { url_tasks } from "../../utils/api";
 import { TaskInputProps } from "./TaskInput";
@@ -37,7 +37,7 @@ const TaskInput = (props: TaskInputProps) => {
       descricao: taskDescription,
     };
     try {
-      const response = await axios.post(url_tasks, payload, {
+      const response = await api.post(url_tasks, payload, {
         headers: {
           "Content-Type": "application/json",
         },

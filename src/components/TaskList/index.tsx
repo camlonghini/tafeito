@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 
 import List from "@mui/material/List";
@@ -13,7 +12,7 @@ import EditIcon from "@mui/icons-material/Edit";
 import { TaskListWrapperProps, TaskListProps } from "./TaskList";
 
 import { Tarefa } from "../../utils/model";
-
+import { api } from '../../provider/customAxios';
 import { url_tasks } from "../../utils/api";
 import { Box } from "@mui/material";
 
@@ -95,7 +94,7 @@ const TaskListWrapper = (props: TaskListWrapperProps) => {
   const fetchtasks = async () => {
     setLoading(true);
     try {
-      const response = await axios.get(url_tasks);
+      const response = await api.get(url_tasks);
       const category_tasks = response.data.filter(
         (task: Tarefa) => task.id_categoria === categoria.id
       );
